@@ -35,31 +35,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:fl
 
 .form-card{background:#1e1e1e;border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:48px}
 
-.form-section{margin-bottom:32px}
+.form-section{margin-bottom:36px}
 .form-section-label{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.05em;color:var(--white);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
 
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .field>label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
-.field input,.field textarea,.field select{background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s;resize:none;width:100%;-webkit-appearance:none}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--red)}
+.field input,.field textarea{background:#141414;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 18px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s;resize:none;width:100%}
+.field input:focus,.field textarea:focus{border-color:var(--red)}
 .field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,0.2)}
 
 .options-list{display:flex;flex-direction:column;gap:8px}
-.option-item{display:flex;align-items:center;gap:12px;background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 18px;cursor:pointer;transition:border-color 0.2s,background 0.2s;user-select:none}
+.option-item{display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px 18px;cursor:pointer;transition:border-color 0.2s,background 0.2s;user-select:none}
 .option-item:hover{border-color:rgba(237,64,24,0.4);background:rgba(237,64,24,0.04)}
-.option-item input{width:18px;height:18px;accent-color:var(--red);flex-shrink:0;cursor:pointer}
-.option-item span{font-size:14px;color:var(--muted);transition:color 0.2s;line-height:1.3}
+.option-item input[type="checkbox"]{width:18px;height:18px;accent-color:var(--red);flex-shrink:0;cursor:pointer}
+.option-item span{font-size:14px;color:var(--muted);transition:color 0.2s;line-height:1.3;flex:1}
 .option-item:hover span{color:var(--white)}
-.option-item input:checked ~ span{color:var(--white)}
 
 .budget-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.budget-item{display:flex;align-items:center;gap:12px;background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:14px 18px;cursor:pointer;transition:border-color 0.2s,background 0.2s;user-select:none}
+.budget-item{display:flex;align-items:center;gap:14px;background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px 18px;cursor:pointer;transition:border-color 0.2s,background 0.2s;user-select:none}
 .budget-item:hover{border-color:rgba(237,64,24,0.4);background:rgba(237,64,24,0.04)}
-.budget-item input{width:18px;height:18px;accent-color:var(--red);flex-shrink:0;cursor:pointer}
+.budget-item input[type="radio"]{width:18px;height:18px;accent-color:var(--red);flex-shrink:0;cursor:pointer}
 .budget-item span{font-size:14px;color:var(--muted);transition:color 0.2s}
 .budget-item:hover span{color:var(--white)}
-.budget-item input:checked ~ span{color:var(--white)}
 
 .submit-btn{width:100%;background:var(--red);color:var(--white);border:none;border-radius:100px;padding:18px 40px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;cursor:pointer;letter-spacing:0.03em;transition:opacity 0.2s,transform 0.15s;display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px}
 .submit-btn:hover{opacity:0.9;transform:scale(1.01)}
@@ -84,7 +82,7 @@ footer{text-align:center;padding:40px;border-top:1px solid rgba(255,255,255,0.06
   .budget-grid{grid-template-columns:1fr}
   nav{padding:16px 24px}
   .page-wrap{padding:100px 24px 60px}
-  .form-card{padding:28px 24px}
+  .form-card{padding:28px 20px}
 }
 </style>
 </head>
