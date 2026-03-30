@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10-Point Instagram Lead Generation Checklist — Floydie</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#ed4018;--dark:#191919;--white:#ffffff;--gray:#2a2a2a;--text-muted:#888}
+body{background:var(--dark);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+.hero{position:relative;padding:72px 24px 56px;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(237,64,24,0.18) 0%,transparent 70%);pointer-events:none}
+.badge{display:inline-block;background:rgba(237,64,24,0.15);border:1px solid rgba(237,64,24,0.4);color:var(--red);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,8vw,80px);line-height:.95;color:#fff;margin-bottom:8px}
+.hero h1 span{color:#ed4018}
+.hero-sub{font-size:15px;color:var(--text-muted);margin-top:16px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.6}
+.hero-meta{margin-top:20px;font-size:12px;color:var(--text-muted);letter-spacing:.05em}
+.hero-meta strong{color:var(--white)}
+.divider{width:48px;height:3px;background:#ed4018;margin:32px auto}
+.progress-wrap{max-width:680px;margin:0 auto 32px;padding:0 20px}
+.progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.progress-label{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+.progress-count{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#ed4018}
+.progress-bar{height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:#ed4018;border-radius:2px;transition:width .3s ease;width:0%}
+.checklist{max-width:680px;margin:0 auto;padding:0 20px 48px}
+.item{display:flex;align-items:flex-start;gap:16px;background:#2a2a2a;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;margin-bottom:12px;cursor:pointer;transition:border-color .2s,background .2s;position:relative;overflow:hidden;animation:fadeUp 0.4s ease both}
+.item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .2s;border-radius:12px 0 0 12px}
+.item:hover{border-color:rgba(237,64,24,0.3)}
+.item.checked{background:rgba(237,64,24,0.08);border-color:rgba(237,64,24,0.35)}
+.item.checked::before{background:#ed4018}
+.item-num{font-family:'Bebas Neue',sans-serif;font-size:28px;line-height:1;color:rgba(255,255,255,0.12);min-width:32px;transition:color .2s;padding-top:2px}
+.item.checked .item-num{color:#ed4018}
+.item-body{flex:1}
+.item-title{font-size:15px;font-weight:600;color:#fff;margin-bottom:4px;line-height:1.4}
+.item-desc{font-size:13px;color:#888;line-height:1.6}
+.item-check{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.item.checked .item-check{background:#ed4018;border-color:#ed4018}
+.item-check svg{opacity:0;transition:opacity .15s}
+.item.checked .item-check svg{opacity:1}
+.item:nth-child(1){animation-delay:.05s}.item:nth-child(2){animation-delay:.10s}.item:nth-child(3){animation-delay:.15s}.item:nth-child(4){animation-delay:.20s}.item:nth-child(5){animation-delay:.25s}.item:nth-child(6){animation-delay:.30s}.item:nth-child(7){animation-delay:.35s}.item:nth-child(8){animation-delay:.40s}.item:nth-child(9){animation-delay:.45s}.item:nth-child(10){animation-delay:.50s}
+.cta-box{max-width:680px;margin:0 auto 24px;padding:0 20px}
+.cta-inner{background:#2a2a2a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 28px}
+.cta-inner h3{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;margin-bottom:8px;line-height:1}
+.cta-inner h3 span{color:#ed4018}
+.cta-inner p{font-size:14px;color:#888;line-height:1.7}
+.cta-inner p strong{color:#fff}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.cta-btn{display:inline-flex;align-items:center;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:12px 24px;border-radius:100px;text-decoration:none;letter-spacing:.03em;transition:transform .15s}
+.cta-btn:hover{transform:scale(1.03)}
+.cta-btn.primary{background:#ed4018;color:#fff}
+.cta-btn.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.2)}
+.footer{text-align:center;padding:0 20px 40px;font-size:12px;color:#888}
+.footer strong{color:#fff}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">Free Resource — @floydie</div>
+  <h1>10-Point<br><span>Instagram</span><br>Lead Gen<br>Checklist</h1>
+  <p class="hero-sub">Stop posting into the void. Here's exactly what your Instagram needs to start generating real leads.</p>
+  <div class="hero-meta">By <strong>Floydie</strong> · Founder, 44 Social</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="progress-wrap">
+  <div class="progress-top">
+    <span class="progress-label">Your progress</span>
+    <span class="progress-count" id="count">0 / 10</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+</div>
+
+<div class="checklist" id="checklist"></div>
+
+<div class="cta-box">
+  <div class="cta-inner">
+    <h3>Ready to take it <span>further?</span></h3>
+    <p>If you went through this list and realized your Instagram needs a real strategy behind it, that's exactly what we do at <strong>44 Social</strong>. We help brands in Central Florida show up consistently, generate real leads, and build content that actually works.</p>
+    <div class="cta-actions">
+      <a class="cta-btn primary" href="https://instagram.com/floydie" target="_blank">Follow @floydie</a>
+      <a class="cta-btn secondary" href="https://44social.co" target="_blank">Work with 44 Social</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">Built by <strong>@floydie</strong> · <strong>floydie.co/leads</strong></div>
+
+<script>
+const items=[
+  {title:"Your bio has a clear offer",desc:"Someone landing on your page knows exactly what you do and who you help within 3 seconds."},
+  {title:"Your bio has a call to action",desc:"There's a next step (DM, link, keyword trigger) — not just a description of who you are."},
+  {title:"You're posting conversation starters, not announcements",desc:"Every caption invites a response. Posting is not a strategy if it's not starting a dialogue."},
+  {title:"Your content speaks to your customer's problem, not your product",desc:"Lead with their pain, not your pitch. Every caption that starts with 'We offer...' is a missed opportunity."},
+  {title:"You have at least one ManyChat keyword trigger active",desc:"So commenting on your posts actually goes somewhere. Automation turns engagement into leads."},
+  {title:"Every post has one clear CTA",desc:"Save, comment, DM, or click. One job per post. If you're not asking, they're not acting."},
+  {title:"Your highlights tell a story",desc:"A new visitor can understand who you are, who you help, and what to do next just from your highlights."},
+  {title:"You're showing up in Stories at least 3x a week",desc:"That's where trust actually builds. The feed gets you discovered. Stories get you remembered."},
+  {title:"You have a lead magnet",desc:"Something free worth DMing for — a checklist, guide, resource, or template. Give before you ask."},
+  {title:"You're tracking what's working",desc:"Profile visits, DMs received, and link clicks. Not likes. Likes don't pay the bills."}
+];
+
+const checklist=document.getElementById('checklist');
+const fill=document.getElementById('fill');
+const count=document.getElementById('count');
+const checked=new Set();
+
+items.forEach((item,i)=>{
+  const el=document.createElement('div');
+  el.className='item';
+  el.innerHTML=`<div class="item-num">${String(i+1).padStart(2,'0')}</div><div class="item-body"><div class="item-title">${item.title}</div><div class="item-desc">${item.desc}</div></div><div class="item-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`;
+  el.addEventListener('click',()=>{
+    if(checked.has(i)){checked.delete(i);el.classList.remove('checked')}
+    else{checked.add(i);el.classList.add('checked')}
+    fill.style.width=(checked.size/items.length*100)+'%';
+    count.textContent=`${checked.size} / ${items.length}`;
+  });
+  checklist.appendChild(el);
+});
+</script>
+</body>
+</html>
