@@ -35,6 +35,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:fl
 .hero-accent{position:absolute;bottom:60px;left:60px;display:flex;align-items:center;gap:16px;z-index:3}
 .accent-line{width:40px;height:1px;background:var(--red)}
 .accent-text{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+.hero-socials{display:flex;align-items:center;gap:20px;margin-top:24px}
+.hero-social-icon{color:rgba(255,255,255,0.35);transition:color 0.2s,transform 0.15s;display:flex;align-items:center}
+.hero-social-icon:hover{color:var(--red);transform:scale(1.15)}
 
 .strip{padding:48px 60px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:60px;overflow:hidden}
 .strip-item{display:flex;align-items:center;gap:12px;flex-shrink:0}
@@ -64,6 +67,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:fl
 .resource-desc{font-size:13px;color:var(--muted);line-height:1.6}
 .resource-arrow{position:absolute;bottom:24px;right:24px;font-size:18px;color:rgba(255,255,255,0.2);transition:color 0.2s,transform 0.2s}
 .resource-card:hover .resource-arrow{color:var(--red);transform:translate(2px,-2px)}
+
+.apply{padding:80px 60px;border-top:1px solid rgba(255,255,255,0.06)}
+.apply-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+.apply-sub{font-size:15px;color:var(--muted);margin:20px 0 32px;font-weight:300;line-height:1.7;max-width:360px}
+.apply-promise{display:flex;flex-direction:column;gap:12px}
+.promise-item{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.promise-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
+.apply-right{background:#222;border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.form-group label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.form-group input,.form-group textarea{background:#191919;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:13px 16px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;resize:none;width:100%}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--red)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.2)}
+.checkbox-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.radio-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.check-item,.radio-item{display:flex;align-items:center;gap:10px;background:#191919;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:11px 14px;font-size:13px;color:var(--muted);cursor:pointer;transition:border-color 0.2s,color 0.2s;user-select:none}
+.check-item:hover,.radio-item:hover{border-color:rgba(237,64,24,0.5);color:var(--white)}
+.check-item input,.radio-item input{accent-color:var(--red);flex-shrink:0}
+.apply-submit{width:100%;background:var(--red);color:var(--white);border:none;border-radius:100px;padding:16px 32px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;letter-spacing:0.03em;transition:opacity 0.2s,transform 0.15s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px}
+.apply-submit:hover{opacity:0.9;transform:scale(1.01)}
+.apply-submit:disabled{opacity:0.5;cursor:not-allowed}
+.submit-arrow{font-size:18px;transition:transform 0.2s}
+.apply-submit:hover .submit-arrow{transform:translateX(4px)}
+.form-success{text-align:center;padding:60px 20px}
+.success-icon{width:56px;height:56px;border-radius:50%;background:rgba(237,64,24,0.15);border:1px solid rgba(237,64,24,0.4);color:var(--red);font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.form-success h3{font-family:'Bebas Neue',sans-serif;font-size:32px;margin-bottom:8px}
+.form-success p{color:var(--muted);font-size:14px;line-height:1.6}
 
 .brands{padding:80px 60px}
 .brands-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
@@ -95,11 +126,14 @@ footer{padding:32px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
 .hero-name{animation:fadeUp 0.6s ease 0.2s both}
 .hero-tagline{animation:fadeUp 0.6s ease 0.35s both}
 .hero-ctas{animation:fadeUp 0.6s ease 0.5s both}
+.hero-socials{animation:fadeUp 0.6s ease 0.6s both}
 
 @media(max-width:768px){
   .hero{grid-template-columns:1fr}.hero-right{height:50vh}.hero-left{padding:120px 24px 60px}
-  .brands-grid{grid-template-columns:1fr}
-  .strip,.about,.resources,.brands,.social,footer{padding-left:24px;padding-right:24px}
+  .brands-grid,.apply-inner{grid-template-columns:1fr}
+  .form-row,.checkbox-grid,.radio-grid{grid-template-columns:1fr}
+  .apply-right{padding:24px}
+  .strip,.about,.resources,.apply,.brands,.social,footer{padding-left:24px;padding-right:24px}
   nav{padding:16px 24px}
 }
 </style>
@@ -111,6 +145,7 @@ footer{padding:32px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#resources">Resources</a></li>
+    <li><a href="#apply">Work With Me</a></li>
     <li><a href="#brands">Brands</a></li>
     <li><a href="https://instagram.com/floydie" target="_blank">Instagram</a></li>
   </ul>
@@ -123,12 +158,25 @@ footer{padding:32px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
     <p class="hero-tagline"><strong>Faith-driven. Brand-obsessed.</strong><br>Helping brands show up, stand out, and convert.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="https://instagram.com/floydie" target="_blank">Follow @floydie</a>
-      <a class="btn btn-ghost" href="https://44social.co" target="_blank">Work With Me</a>
+      <a class="btn btn-ghost" href="#apply">Work With Me</a>
+    </div>
+    <div class="hero-socials">
+      <a class="hero-social-icon" href="https://instagram.com/floydie" target="_blank" title="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="hero-social-icon" href="https://www.tiktok.com/@floydie514" target="_blank" title="TikTok">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      </a>
+      <a class="hero-social-icon" href="https://www.threads.com/@floydie" target="_blank" title="Threads">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.473 12.01v-.017c.027-3.579.877-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.594 12c.022 3.086.713 5.496 2.051 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 011.57.044c-.07-.464-.214-.842-.435-1.127-.403-.519-1.035-.786-1.88-.798h-.04c-.673 0-1.53.194-2.106 1.188l-1.792-1.073C8.935 5.643 10.291 5 11.979 5c.123 0 .246.003.37.009 1.598.086 2.83.682 3.663 1.73.704.883 1.074 2.053 1.1 3.481.238.094.468.197.688.308 1.403.712 2.388 1.8 2.846 3.147.612 1.822.258 4.206-1.639 6.066-1.649 1.615-3.663 2.36-6.82 2.259z"/></svg>
+      </a>
+      <a class="hero-social-icon" href="https://www.youtube.com/channel/UCB4Nqg3MiI-QaG8soDhbIbA" target="_blank" title="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
     </div>
   </div>
   <div class="hero-right">
-    <img class="hero-img" src="https://i.ibb.co/SD5zN53G/DSC-6490.jpg"
- alt="Floydie"/>
+    <img class="hero-img" src="https://i.ibb.co/SD5zN53G/DSC-6490.jpg" alt="Floydie"/>
     <div class="hero-img-overlay"></div>
   </div>
   <div class="hero-accent">
@@ -186,6 +234,75 @@ footer{padding:32px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
   </div>
 </section>
 
+<section class="apply" id="apply">
+  <div class="apply-inner">
+    <div class="apply-left">
+      <div class="section-label">Work With Me</div>
+      <h2 class="section-title">Let's build<br><span style="color:var(--red)">something real.</span></h2>
+      <p class="apply-sub">Fill out the form and I'll personally review your application and be in touch within 48 hours.</p>
+      <div class="apply-promise">
+        <div class="promise-item"><div class="promise-dot"></div><span>No spam. Ever.</span></div>
+        <div class="promise-item"><div class="promise-dot"></div><span>Personal review on every submission</span></div>
+        <div class="promise-item"><div class="promise-dot"></div><span>Response within 48 hours</span></div>
+      </div>
+    </div>
+    <div class="apply-right">
+      <div id="form-success" style="display:none;" class="form-success">
+        <div class="success-icon">✓</div>
+        <h3>You're in.</h3>
+        <p>I'll review your application and be in touch within 48 hours.</p>
+      </div>
+      <div id="apply-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="f-name" placeholder="First and last name" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="f-email" placeholder="you@yourbusiness.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Business Name</label>
+            <input type="text" id="f-biz" placeholder="Your brand or company" />
+          </div>
+          <div class="form-group">
+            <label>Industry</label>
+            <input type="text" id="f-industry" placeholder="e.g. HVAC, Auto, Fitness" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>What do you need?</label>
+          <div class="checkbox-grid">
+            <label class="check-item"><input type="checkbox" value="Social Media Management" /><span>Social Media Management</span></label>
+            <label class="check-item"><input type="checkbox" value="Content Production" /><span>Content Production</span></label>
+            <label class="check-item"><input type="checkbox" value="Brand Strategy" /><span>Brand Strategy</span></label>
+            <label class="check-item"><input type="checkbox" value="Reels / Video" /><span>Reels / Video</span></label>
+            <label class="check-item"><input type="checkbox" value="Photography" /><span>Photography</span></label>
+            <label class="check-item"><input type="checkbox" value="Full Service" /><span>Full Service</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Monthly Budget</label>
+          <div class="radio-grid">
+            <label class="radio-item"><input type="radio" name="budget" value="Under $1k" /><span>Under $1k</span></label>
+            <label class="radio-item"><input type="radio" name="budget" value="$1k-$2.5k" /><span>$1k–$2.5k</span></label>
+            <label class="radio-item"><input type="radio" name="budget" value="$2.5k-$5k" /><span>$2.5k–$5k</span></label>
+            <label class="radio-item"><input type="radio" name="budget" value="$5k+" /><span>$5k+</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tell me about your brand</label>
+          <textarea id="f-message" placeholder="What's your biggest challenge right now? What does success look like for you?" rows="4"></textarea>
+        </div>
+        <button class="apply-submit" id="submit-btn" onclick="submitForm()">Submit Application <span class="submit-arrow">→</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="brands" id="brands">
   <div class="section-label">My Brands</div>
   <div class="section-title">What I'm building</div>
@@ -222,9 +339,11 @@ footer{padding:32px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
   <p class="social-sub">Follow the journey across platforms</p>
   <div class="social-links">
     <a class="social-btn" href="https://instagram.com/floydie" target="_blank"><span>Instagram</span><span class="social-handle">@floydie</span></a>
+    <a class="social-btn" href="https://www.tiktok.com/@floydie514" target="_blank"><span>TikTok</span><span class="social-handle">@floydie514</span></a>
+    <a class="social-btn" href="https://www.threads.com/@floydie" target="_blank"><span>Threads</span><span class="social-handle">@floydie</span></a>
+    <a class="social-btn" href="https://www.youtube.com/channel/UCB4Nqg3MiI-QaG8soDhbIbA" target="_blank"><span>YouTube</span><span class="social-handle">@floydie</span></a>
     <a class="social-btn" href="https://instagram.com/thefloydies" target="_blank"><span>Family</span><span class="social-handle">@thefloydies</span></a>
     <a class="social-btn" href="https://44social.co" target="_blank"><span>Agency</span><span class="social-handle">44social.co</span></a>
-    <a class="social-btn" href="https://instagram.com/utgagency" target="_blank"><span>UTG</span><span class="social-handle">@utgagency</span></a>
   </div>
 </section>
 
@@ -232,6 +351,35 @@ footer{padding:32px 60px;border-top:1px solid rgba(255,255,255,0.06);display:fle
   <span class="footer-copy">© 2026 Floydie · All rights reserved</span>
   <span class="footer-logo">FLOYDIE</span>
 </footer>
+
+<script>
+async function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const biz = document.getElementById('f-biz').value.trim();
+  const industry = document.getElementById('f-industry').value.trim();
+  const message = document.getElementById('f-message').value.trim();
+  const budget = document.querySelector('input[name="budget"]:checked')?.value || '';
+  const needs = [...document.querySelectorAll('.checkbox-grid input:checked')].map(c => c.value);
+  if (!name || !email) { alert('Please enter your name and email.'); return; }
+  const btn = document.getElementById('submit-btn');
+  btn.innerHTML = 'Submitting...';
+  btn.disabled = true;
+  try {
+    await fetch('YOUR_MAKE_WEBHOOK_URL', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ name, email, business: biz, industry, budget, needs: needs.join(', '), message, submitted: new Date().toLocaleString(), source: 'floydie.co' })
+    });
+    document.getElementById('apply-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  } catch(e) {
+    btn.innerHTML = 'Submit Application <span class="submit-arrow">→</span>';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again.');
+  }
+}
+</script>
 
 </body>
 </html>
