@@ -204,7 +204,7 @@ async function submitForm() {
   btn.innerHTML = 'Submitting...';
   btn.disabled = true;
   try {
-    await fetch('YOUR_MAKE_WEBHOOK_URL', {
+    await fetch('https://hook.us2.make.com/jgik4euhpngavnw85swfplr3cs6e8zjp', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ name, email, business: biz, industry, budget, needs: needs.join(', '), message, submitted: new Date().toLocaleString(), source: 'floydie.co/apply' })
