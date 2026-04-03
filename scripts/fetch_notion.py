@@ -80,7 +80,9 @@ def main():
         "posts": posts,
     }
 
-    out_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data.json")
+    # Write to dashboard/data.json so it sits next to index.html
+    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    out_path = os.path.join(repo_root, "dashboard", "data.json")
     with open(out_path, "w") as f:
         json.dump(output, f, indent=2)
 
