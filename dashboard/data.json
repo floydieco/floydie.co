@@ -1,0 +1,236 @@
+{
+  "generated_at": "2026-04-03T03:57:37.922538+00:00",
+  "post_count": 23,
+  "posts": [
+    {
+      "Post Title": "The Order I Had It Backwards",
+      "Status": "Posted",
+      "date:Date:start": "2026-03-30",
+      "Angle": "Faith",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Pre-Launch",
+      "Day": "Monday"
+    },
+    {
+      "Post Title": "Son's 6th Birthday",
+      "Status": "Posted",
+      "date:Date:start": "2026-04-01",
+      "Angle": "Family",
+      "Format": "Carousel",
+      "Keyword Trigger": "None",
+      "Week": "Week 1",
+      "Day": "Wednesday"
+    },
+    {
+      "Post Title": "This Is What I Do (44 Social)",
+      "Status": "Posted",
+      "date:Date:start": "2026-04-02",
+      "Angle": "Behind the Brand",
+      "Format": "Carousel",
+      "Keyword Trigger": "None",
+      "Week": "Week 1",
+      "Day": "Thursday"
+    },
+    {
+      "Post Title": "POV: You Run a Marketing Agency",
+      "Status": "Scheduled",
+      "date:Date:start": "2026-04-03",
+      "Angle": "Behind the Brand",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 1",
+      "Day": "Friday"
+    },
+    {
+      "Post Title": "Building Something That Matters Starts at Home",
+      "Status": "Scheduled",
+      "date:Date:start": "2026-04-04",
+      "Angle": "Family",
+      "Format": "Single Image",
+      "Keyword Trigger": "None",
+      "Week": "Week 1",
+      "Day": "Saturday"
+    },
+    {
+      "Post Title": "What Nobody Tells You About Running Your Own Business",
+      "Status": "Filming",
+      "date:Date:start": "2026-04-06",
+      "Angle": "Personal / Raw",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 2",
+      "Day": "Monday"
+    },
+    {
+      "Post Title": "The Reason Your Content Isn't Converting",
+      "Status": "Filming",
+      "date:Date:start": "2026-04-07",
+      "Angle": "Value + CTA",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 2",
+      "Day": "Tuesday"
+    },
+    {
+      "Post Title": "5 Reasons Your Instagram Isn't Generating Leads",
+      "Status": "Scheduled",
+      "date:Date:start": "2026-04-08",
+      "Angle": "Value + CTA",
+      "Format": "Carousel",
+      "Keyword Trigger": "LEADS",
+      "Week": "Week 2",
+      "Day": "Wednesday"
+    },
+    {
+      "Post Title": "What 90 Days of Consistent Content Looks Like",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-10",
+      "Angle": "Behind the Brand",
+      "Format": "Carousel",
+      "Keyword Trigger": "None",
+      "Week": "Week 2",
+      "Day": "Friday"
+    },
+    {
+      "Post Title": "Surrendered to God. Devoted to My Family.",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-11",
+      "Angle": "Faith",
+      "Format": "Single Image",
+      "Keyword Trigger": "None",
+      "Week": "Week 2",
+      "Day": "Saturday"
+    },
+    {
+      "Post Title": "Why Most Agency Owners Stay Broke",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-13",
+      "Angle": "Behind the Brand",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 3",
+      "Day": "Monday"
+    },
+    {
+      "Post Title": "What Business Taught Me About Being a Dad",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-14",
+      "Angle": "Family",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 3",
+      "Day": "Tuesday"
+    },
+    {
+      "Post Title": "We Took This Account From Invisible to Inevitable",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-15",
+      "Angle": "Value + CTA",
+      "Format": "Carousel",
+      "Keyword Trigger": "GROWTH",
+      "Week": "Week 3",
+      "Day": "Wednesday"
+    },
+    {
+      "Post Title": "3 Things Every Local Business Should Post This Week",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-17",
+      "Angle": "Value + CTA",
+      "Format": "Carousel",
+      "Keyword Trigger": "None",
+      "Week": "Week 3",
+      "Day": "Friday"
+    },
+    {
+      "Post Title": "The Messy Middle",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-18",
+      "Angle": "Personal / Raw",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 3",
+      "Day": "Saturday"
+    },
+    {
+      "Post Title": "Stop Creating Content. Start Building a System.",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-20",
+      "Angle": "Value + CTA",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 4",
+      "Day": "Monday"
+    },
+    {
+      "Post Title": "This Is What We Get Paid to Do",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-21",
+      "Angle": "Behind the Brand",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 4",
+      "Day": "Tuesday"
+    },
+    {
+      "Post Title": "How We Manage Content for Multiple Clients",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-22",
+      "Angle": "Value + CTA",
+      "Format": "Carousel",
+      "Keyword Trigger": "SYSTEM",
+      "Week": "Week 4",
+      "Day": "Wednesday"
+    },
+    {
+      "Post Title": "God's Timing Has Never Been Wrong",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-24",
+      "Angle": "Faith",
+      "Format": "Single Image",
+      "Keyword Trigger": "None",
+      "Week": "Week 4",
+      "Day": "Friday"
+    },
+    {
+      "Post Title": "What April Taught Me",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-25",
+      "Angle": "Personal / Raw",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 4",
+      "Day": "Saturday"
+    },
+    {
+      "Post Title": "Your Instagram Bio Is Costing You Clients",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-27",
+      "Angle": "Value + CTA",
+      "Format": "Carousel",
+      "Keyword Trigger": "None",
+      "Week": "Week 5",
+      "Day": "Monday"
+    },
+    {
+      "Post Title": "Month One Reflection",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-28",
+      "Angle": "Behind the Brand",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 5",
+      "Day": "Tuesday"
+    },
+    {
+      "Post Title": "Grateful for April",
+      "Status": "Not Started",
+      "date:Date:start": "2026-04-29",
+      "Angle": "Faith",
+      "Format": "Single Image",
+      "Keyword Trigger": "None",
+      "Week": "Week 5",
+      "Day": "Wednesday"
+    }
+  ]
+}
