@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-04T14:03:33.211409+00:00",
+  "generated_at": "2026-04-04T17:06:28.258100+00:00",
   "post_count": 87,
   "posts": [
     {
@@ -33,8 +33,8 @@
       "Day": "Thursday"
     },
     {
-      "Post Title": "Read Psalm 46:10 today. 'Be still.' That's it. That's the whole message.",
-      "Status": "Not Started",
+      "Post Title": "Jesus Died for Us, and we didn\u2019t deserve it",
+      "Status": "Posted",
       "date:Date:start": "2026-04-03",
       "Angle": "Faith",
       "Format": "Reel",
@@ -44,7 +44,7 @@
     },
     {
       "Post Title": "Most people are one decision away from a completely different life. They just keep picking the familiar one.",
-      "Status": "Scheduled",
+      "Status": "Posted",
       "date:Date:start": "2026-04-03",
       "Angle": "Personal / Raw",
       "Format": "Thread",
@@ -54,7 +54,7 @@
     },
     {
       "Post Title": "My son just turned 6 and I keep thinking about how fast this goes. The business can wait. These moments can't.",
-      "Status": "Scheduled",
+      "Status": "Posted",
       "date:Date:start": "2026-04-03",
       "Angle": "Family",
       "Format": "Thread",
@@ -64,9 +64,19 @@
     },
     {
       "Post Title": "POV: You Run a Marketing Agency",
-      "Status": "Scheduled",
+      "Status": "Posted",
       "date:Date:start": "2026-04-03",
       "Angle": "Behind the Brand",
+      "Format": "Reel",
+      "Keyword Trigger": "None",
+      "Week": "Week 1",
+      "Day": "Friday"
+    },
+    {
+      "Post Title": "Addressing The Mockers",
+      "Status": "Posted",
+      "date:Date:start": "2026-04-04",
+      "Angle": "Faith",
       "Format": "Reel",
       "Keyword Trigger": "None",
       "Week": "Week 1",
@@ -83,18 +93,8 @@
       "Day": "Saturday"
     },
     {
-      "Post Title": "The Gospel is not a self-improvement plan. It's a rescue mission. Jesus came for people who were done trying to fix themselves.",
-      "Status": "Not Started",
-      "date:Date:start": "2026-04-04",
-      "Angle": "Faith",
-      "Format": "Reel",
-      "Keyword Trigger": "None",
-      "Week": "Week 1",
-      "Day": "Saturday"
-    },
-    {
       "Post Title": "Building Something That Matters Starts at Home",
-      "Status": "Scheduled",
+      "Status": "Posted",
       "date:Date:start": "2026-04-04",
       "Angle": "Family",
       "Format": "Single Image",
@@ -103,21 +103,21 @@
       "Day": "Saturday"
     },
     {
-      "Post Title": "John 3:16 -- Read and unpack it line by line on camera.",
-      "Status": "Not Started",
-      "date:Date:start": "2026-04-05",
-      "Angle": "Faith",
-      "Format": "Reel",
-      "Keyword Trigger": "None",
-      "Week": "Week 1",
-      "Day": "Sunday"
-    },
-    {
       "Post Title": "Happy Sunday. Go to church if you can. If you can't, open your Bible. Either way, don't let today pass without connecting to something bigger than your to-do list.",
       "Status": "Scheduled",
       "date:Date:start": "2026-04-05",
       "Angle": "Faith",
       "Format": "Thread",
+      "Keyword Trigger": "None",
+      "Week": "Week 1",
+      "Day": "Sunday"
+    },
+    {
+      "Post Title": "The Gospel is not a self-improvement plan. It's a rescue mission. Jesus came for people who were done trying to fix themselves.",
+      "Status": "Filming",
+      "date:Date:start": "2026-04-05",
+      "Angle": "Faith",
+      "Format": "Reel",
       "Keyword Trigger": "None",
       "Week": "Week 1",
       "Day": "Sunday"
@@ -134,7 +134,7 @@
     },
     {
       "Post Title": "My kids don't need a perfect dad. They need a present one. Here's what that actually looks like when you're building a business.",
-      "Status": "Not Started",
+      "Status": "Filming",
       "date:Date:start": "2026-04-06",
       "Angle": "Family",
       "Format": "Reel",
@@ -284,7 +284,7 @@
     },
     {
       "Post Title": "Surrendered doesn't mean passive. It means you stopped fighting for control you were never meant to have.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-11",
       "Angle": "Faith",
       "Format": "Thread",
@@ -314,7 +314,7 @@
     },
     {
       "Post Title": "Sunday reminder: rest is not laziness. God built it into the week for a reason. Stop apologizing for it.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-12",
       "Angle": "Faith",
       "Format": "Thread",
@@ -344,7 +344,7 @@
     },
     {
       "Post Title": "Nobody claps for you in the middle. The beginning is exciting. The end gets celebrated. The middle is just you, God, and the work.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-13",
       "Angle": "Personal / Raw",
       "Format": "Thread",
@@ -364,7 +364,7 @@
     },
     {
       "Post Title": "Running a business made me a worse dad before it made me a better one. That's the truth I don't see people talking about.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-14",
       "Angle": "Family",
       "Format": "Thread",
@@ -374,7 +374,7 @@
     },
     {
       "Post Title": "Grace is not permission to stay the same. It's power to become who you were always meant to be.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-14",
       "Angle": "Faith",
       "Format": "Thread",
@@ -404,7 +404,7 @@
     },
     {
       "Post Title": "Went from invisible to inevitable by doing one thing: posting content consistently for people I could actually help. That's the whole strategy.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-15",
       "Angle": "Value + CTA",
       "Format": "Thread",
@@ -434,7 +434,7 @@
     },
     {
       "Post Title": "Unpopular opinion: most people don't need more content ideas. They need to stop overthinking the ones they already have.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-16",
       "Angle": "Personal / Raw",
       "Format": "Thread",
@@ -444,7 +444,7 @@
     },
     {
       "Post Title": "Faith without works is dead. But works without faith will hollow you out eventually. Both sides of that verse matter.",
-      "Status": "Not Started",
+      "Status": "Scheduled",
       "date:Date:start": "2026-04-16",
       "Angle": "Faith",
       "Format": "Thread",
