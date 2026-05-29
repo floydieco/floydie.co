@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrew Floyd | Social Media Manager</title>
+<meta name="description" content="Andrew Floyd, social media manager and content strategist in Orlando, FL. 9+ years across agency and brand work. Open to full-time and part-time roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#ed4018;
+    --ink:#191919;
+    --paper:#f7f5f1;
+    --card:#ffffff;
+    --muted:#6f6a62;
+    --line:#e2ddd4;
+    --head:'Bebas Neue',Impact,sans-serif;
+    --body:'DM Sans',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  .reveal{opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.04s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.28s}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(247,245,241,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-family:var(--head);font-size:26px;letter-spacing:.05em}
+  .brand b{color:var(--red)}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-dl{border:1.5px solid var(--ink);color:var(--ink);padding:9px 16px;border-radius:2px;transition:.2s}
+  .nav-dl:hover{background:var(--ink);color:#fff}
+  @media(max-width:720px){.nav-links a:not(.nav-dl){display:none}}
+
+  /* HERO */
+  .hero{padding:80px 0 56px}
+  .avail{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);padding:8px 15px;border-radius:40px;font-size:13px;font-weight:600;color:#3c382f;margin-bottom:28px}
+  .avail .pip{width:8px;height:8px;border-radius:50%;background:#27a857;box-shadow:0 0 0 4px rgba(39,168,87,.18)}
+  .hero h1{font-family:var(--head);font-size:clamp(54px,9vw,108px);line-height:.88;letter-spacing:.01em}
+  .hero .role{display:block;color:var(--red)}
+  .hero .sub{max-width:620px;margin-top:26px;font-size:19px;color:#46423a}
+  .hero .meta{margin-top:18px;font-size:14.5px;color:var(--muted);display:flex;gap:22px;flex-wrap:wrap}
+  .hero .meta b{color:var(--ink);font-weight:600}
+  .btns{display:flex;gap:13px;margin-top:34px;flex-wrap:wrap}
+  .btn{font-weight:600;font-size:15px;padding:14px 24px;border-radius:3px;transition:.2s}
+  .btn-fill{background:var(--red);color:#fff}
+  .btn-fill:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(237,64,24,.28)}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+
+  /* STATS */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:34px 22px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:var(--head);font-size:clamp(42px,5vw,62px);color:var(--ink);line-height:.85}
+  .stat .n em{color:var(--red);font-style:normal}
+  .stat .l{margin-top:8px;font-size:13.5px;color:var(--muted);line-height:1.4}
+  @media(max-width:720px){.stats .wrap{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}}
+
+  /* SECTIONS */
+  section{padding:72px 0}
+  .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:14px}
+  .h2{font-family:var(--head);font-size:clamp(34px,5vw,56px);line-height:.92;margin-bottom:30px}
+  .lead{max-width:680px;font-size:18px;color:#46423a;line-height:1.7}
+
+  /* EXPERIENCE TIMELINE */
+  .xp{border-left:2px solid var(--line);margin-left:6px;padding-left:30px;display:flex;flex-direction:column;gap:38px}
+  .job{position:relative}
+  .job::before{content:"";position:absolute;left:-37px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red);border:3px solid var(--paper)}
+  .job .top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+  .job h3{font-size:20px;font-weight:700;color:var(--ink)}
+  .job .co{color:var(--red);font-weight:600}
+  .job .when{font-size:13.5px;color:var(--muted);font-weight:500;white-space:nowrap}
+  .job .desc{font-size:15px;color:#5a554c;margin:6px 0 10px;font-style:italic}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .job li{position:relative;padding-left:18px;font-size:15.5px;color:#3c382f;line-height:1.55}
+  .job li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--red);border-radius:50%}
+
+  /* SKILLS */
+  .skills{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .col h4{font-family:var(--head);font-size:24px;letter-spacing:.03em;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--red);display:inline-block}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--paper);border:1px solid var(--line);padding:7px 13px;border-radius:3px;font-size:14px;color:#3c382f;font-weight:500}
+  @media(max-width:720px){.cols{grid-template-columns:1fr;gap:32px}}
+
+  /* CLIENTS */
+  .clients .row{display:flex;flex-wrap:wrap;gap:10px 26px;font-family:var(--head);font-size:clamp(24px,3.5vw,40px);color:var(--ink);letter-spacing:.02em;align-items:baseline}
+  .clients .row span:nth-child(even){color:var(--red)}
+
+  /* CONTACT */
+  .contact{background:var(--ink);color:#fff;text-align:center}
+  .contact .h2{color:#fff}
+  .contact .h2 span{color:var(--red)}
+  .contact p{color:#cfcbc3;font-size:18px;max-width:480px;margin:0 auto 30px}
+  .contact .btns{justify-content:center}
+  .contact .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+  .contact .btn-ghost:hover{background:#fff;color:var(--ink)}
+  .cinfo{margin-top:34px;display:flex;gap:30px;justify-content:center;flex-wrap:wrap;font-size:15px;color:#aaa49b}
+  .cinfo a{color:#fff;border-bottom:1px solid var(--red);padding-bottom:1px}
+
+  footer{padding:30px 0;background:var(--ink);border-top:1px solid rgba(255,255,255,.1);text-align:center;color:#7c786f;font-size:13px}
+  /* WORK / VIDEOS */
+  .work .vids{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .vid .frame{position:relative;width:100%;padding-top:177.78%;background:#000;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .vid .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .vid .tag{margin-top:14px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700}
+  .vid h3{font-size:18px;font-weight:700;margin:5px 0 4px;color:var(--ink)}
+  .vid p{font-size:14.5px;color:var(--muted);line-height:1.5}
+  @media(max-width:760px){.work .vids{grid-template-columns:1fr;gap:30px;max-width:400px;margin:0 auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="brand">ANDREW FLOYD<b>.</b></a>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav-dl">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="avail reveal d1"><span class="pip"></span> Open to full-time and part-time roles</div>
+    <h1 class="reveal d1">Andrew Floyd<span class="role">Social Media Manager</span></h1>
+    <p class="sub reveal d2">Content strategist with 9+ years across agency and brand work. I run social from strategy through production, community, and the automation behind it, and I have the numbers to back it up. Looking to bring that to a team that takes its social seriously.</p>
+    <div class="meta reveal d3">
+      <span>📍 <b>Orlando, FL</b></span>
+      <span>✉️ <b>floydie@44social.co</b></span>
+      <span>📞 <b>407-456-2184</b></span>
+    </div>
+    <div class="btns reveal d4">
+      <a href="mailto:floydie@44social.co" class="btn btn-fill">Get in touch</a>
+      <a href="#work" class="btn btn-ghost">See my work</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">9<em>+</em></div><div class="l">Years in social and content</div></div>
+    <div class="stat"><div class="n"><em>27%</em></div><div class="l">Min. lift in impressions and clicks in under 10 months</div></div>
+    <div class="stat"><div class="n"><em>15%</em></div><div class="l">Follower growth, month over month</div></div>
+    <div class="stat"><div class="n">13<em>K+</em></div><div class="l">Audience built from zero</div></div>
+  </div>
+</div>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2 class="h2">Where I've done the work</h2>
+    <div class="xp">
+
+      <div class="job">
+        <div class="top"><h3>Founder &amp; Social Media Manager, <span class="co">44 Social Company</span></h3><span class="when">2023 to Present</span></div>
+        <div class="desc">Social media management and content studio for brands and founders.</div>
+        <ul>
+          <li>Manage end-to-end social for clients: strategy, content calendars, production, and community management.</li>
+          <li>Build AI-assisted automation and lead flows with ManyChat, Make.com, and Notion that convert audience into booked calls.</li>
+          <li>Grow audiences from the ground up with consistent posting systems, including a branded account taken from zero to 13,000+.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="top"><h3>Founder, <span class="co">Ultimate Talent Global Agency</span></h3><span class="when">Jan 2017 to Present</span></div>
+        <div class="desc">Talent and digital marketing agency serving entertainment brands and local businesses.</div>
+        <ul>
+          <li>Ran brand strategy, content, and influencer campaigns across a wide range of client accounts.</li>
+          <li>Grew client accounts by a minimum of 27% in impressions and clicks within 10 months by rebuilding their content strategy.</li>
+          <li>Boosted client following 15% month over month by installing a consistent posting system and calendar.</li>
+          <li>Delivered campaigns for Disney, Nike, SHEIN, Fashion Nova, MTV, Rolling Loud, SEGA, Shade 45, iHeartRadio, and Symphonic.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="top"><h3>Social Media &amp; Sales Manager, <span class="co">Supreme Energy Solutions</span></h3><span class="when">Aug 2021 to Sept 2023</span></div>
+        <ul>
+          <li>Built and ran social strategy for solar and roofing offers, driving qualified lead generation.</li>
+          <li>Produced educational video, infographic, and blog content that moved cold audiences toward booked consultations.</li>
+          <li>Managed influencer partnerships and social campaigns that grew brand visibility in a competitive market.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="top"><h3>Sales Representative, <span class="co">Hilton Grand Vacations</span></h3><span class="when">Sept 2012 to Dec 2017</span></div>
+        <ul>
+          <li>Closed vacation package sales over the phone with inbound transferred leads.</li>
+          <li>Hit upsell and retention targets while maintaining guest loyalty across multiple property locations.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="eyebrow">Selected work</div>
+    <h2 class="h2">See it in motion</h2>
+    <div class="vids">
+      <div class="vid">
+        <div class="frame"><iframe src="https://player.vimeo.com/video/1196558922?h=73b4dfb7f8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Real Estate Recap"></iframe></div>
+        <div class="tag">Brand Video</div>
+        <h3>Real Estate Recap</h3>
+        <p>Listing recap content that builds a realtor's brand and keeps the pipeline warm.</p>
+      </div>
+      <div class="vid">
+        <div class="frame"><iframe src="https://player.vimeo.com/video/1179600280?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Zoom Express Grand Opening"></iframe></div>
+        <div class="tag">Event Media</div>
+        <h3>Zoom Express, Grand Opening</h3>
+        <p>Event energy captured and packaged to extend a brand's reach.</p>
+      </div>
+      <div class="vid">
+        <div class="frame"><iframe src="https://player.vimeo.com/video/1179607111?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="JAE Testimonial"></iframe></div>
+        <div class="tag">Customer Testimonial</div>
+        <h3>JAE, Always on Time</h3>
+        <p>Authentic stories that turn happy clients into a brand's best sales tool.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <div class="wrap">
+    <div class="eyebrow">What I bring</div>
+    <h2 class="h2">Skills &amp; tools</h2>
+    <div class="cols">
+      <div class="col">
+        <h4>Strategy &amp; Systems</h4>
+        <div class="chips">
+          <span class="chip">Brand Strategy</span><span class="chip">Social Media Strategy</span><span class="chip">AI Automation</span><span class="chip">Lead Generation</span><span class="chip">Marketing Automation</span><span class="chip">Community Management</span>
+        </div>
+      </div>
+      <div class="col">
+        <h4>Creative</h4>
+        <div class="chips">
+          <span class="chip">Content Creation</span><span class="chip">Copywriting</span><span class="chip">Video &amp; Audio Editing</span><span class="chip">Email Campaigns</span>
+        </div>
+      </div>
+      <div class="col">
+        <h4>Tools</h4>
+        <div class="chips">
+          <span class="chip">ManyChat</span><span class="chip">Make.com</span><span class="chip">Notion</span><span class="chip">ChatGPT</span><span class="chip">Premiere</span><span class="chip">CapCut</span><span class="chip">Canva</span><span class="chip">Mailchimp</span><span class="chip">Google Workspace</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="clients">
+  <div class="wrap">
+    <div class="eyebrow">Selected clients</div>
+    <h2 class="h2">Brands I've worked with</h2>
+    <div class="row">
+      <span>Disney</span><span>Nike</span><span>SHEIN</span><span>Fashion Nova</span><span>MTV</span><span>Rolling Loud</span><span>SEGA</span><span>Shade 45</span><span>iHeartRadio</span><span>Symphonic</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--red)">Let's talk</div>
+    <h2 class="h2">Looking for someone to <span>own your social?</span></h2>
+    <p>I'm open to full-time and part-time roles, on-site in Orlando or remote. Send a note and let's see if it's a fit.</p>
+    <div class="btns">
+      <a href="mailto:floydie@44social.co" class="btn btn-fill">Email me</a>
+    </div>
+    <div class="cinfo">
+      <span><a href="mailto:floydie@44social.co">floydie@44social.co</a></span>
+      <span>407-456-2184</span>
+      <span><a href="https://instagram.com/floydie" target="_blank" rel="noopener">@floydie</a></span>
+    </div>
+  </div>
+</section>
+
+<footer>Andrew Floyd. Social Media Manager &amp; Content Strategist. Orlando, FL.</footer>
+
+</body>
+</html>
