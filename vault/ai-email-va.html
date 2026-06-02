@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Email + Calendar VA · Free Automation by Floydie</title>
+<meta name="description" content="A free AI automation that triages your inbox, drafts your replies, and preps your day before you wake up. Set up in ten minutes." />
+
+<!-- Open Graph / share preview -->
+<meta property="og:title" content="An inbox that handles itself before you wake up" />
+<meta property="og:description" content="Free automation. Triages your email, drafts replies in your voice, preps your day. Ten minute setup." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --red: #ed4018;
+    --dark: #191919;
+    --white: #ffffff;
+    --cream: #f6f3ee;
+    --paper: #fbfaf7;
+    --line: #e4ded4;
+    --muted: #6f6a62;
+    --ink: #1f1d1b;
+    --code-bg: #141312;
+    --maxw: 760px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+  /* ---------- HERO / GATE ---------- */
+  .hero {
+    background: var(--dark);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    padding: 56px 0 64px;
+  }
+  /* grain + glow texture */
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(900px 420px at 78% -10%, rgba(237,64,24,0.30), transparent 60%),
+      radial-gradient(620px 380px at 0% 110%, rgba(237,64,24,0.12), transparent 55%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 2; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.16);
+    padding: 7px 13px; border-radius: 100px;
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(237,64,24,0.25); }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    font-size: clamp(52px, 12vw, 96px);
+    margin: 22px 0 0;
+  }
+  h1 .accent { color: var(--red); }
+
+  .subhead {
+    font-size: clamp(16px, 2.4vw, 19px);
+    color: #d7d2ca;
+    max-width: 560px;
+    margin: 20px 0 0;
+  }
+
+  .byline {
+    margin-top: 22px;
+    font-size: 14px; color: #b7b1a8; letter-spacing: 0.01em;
+  }
+  .byline b { color: var(--white); font-weight: 700; }
+
+  /* value preview chips */
+  .preview {
+    margin-top: 30px;
+    display: grid; gap: 10px;
+  }
+  .preview .pv {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 15px; color: #e9e5de;
+  }
+  .preview .pv .tick {
+    flex: 0 0 auto; margin-top: 3px;
+    width: 18px; height: 18px; border-radius: 5px;
+    background: var(--red); color: #fff;
+    display: grid; place-items: center; font-size: 12px; font-weight: 700;
+  }
+
+  /* gate card */
+  .gate {
+    margin-top: 32px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    padding: 22px;
+    backdrop-filter: blur(4px);
+  }
+  .gate h2 {
+    font-family: 'Bebas Neue', sans-serif; font-weight: 400;
+    font-size: 28px; letter-spacing: 0.02em; text-transform: uppercase; line-height: 1;
+  }
+  .gate p.note { font-size: 14px; color: #c8c2b9; margin-top: 6px; }
+  .gate .row { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .gate input[type="email"] {
+    flex: 1 1 220px; min-width: 0;
+    background: #0f0e0d; color: #fff;
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 10px;
+    padding: 14px 15px; font-size: 16px; font-family: inherit;
+    outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  .gate input[type="email"]:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(237,64,24,0.25); }
+  .gate input::placeholder { color: #7d776e; }
+
+  .btn {
+    cursor: pointer; border: none; font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 0.05em; text-transform: uppercase;
+    border-radius: 10px; padding: 13px 22px; transition: transform .12s, filter .15s, background .15s;
+  }
+  .btn-red { background: var(--red); color: #fff; }
+  .btn-red:hover { filter: brightness(1.07); transform: translateY(-1px); }
+  .btn-red:active { transform: translateY(0); }
+  .jump { display: inline-block; text-decoration: none; margin-top: 30px; }
+
+  .gate .micro { font-size: 13px; color: #9c968d; margin-top: 12px; }
+  .gate .micro a { color: var(--red); text-decoration: none; font-weight: 700; }
+  .gate .micro a:hover { text-decoration: underline; }
+  .gate .err { color: #ff8a6b; font-size: 13px; margin-top: 10px; display: none; }
+
+  /* ---------- CONTENT ---------- */
+  .content { display: block; }
+
+  section { padding: 46px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .kicker {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 12px;
+  }
+  h2.sec {
+    font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.95;
+    text-transform: uppercase; letter-spacing: 0.01em;
+    font-size: clamp(32px, 6vw, 46px);
+  }
+  .lede { font-size: 17px; color: var(--ink); margin-top: 12px; max-width: 620px; }
+  p + p { margin-top: 14px; }
+
+  .cards { margin-top: 26px; display: grid; gap: 14px; }
+  .card {
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 18px 18px 56px; position: relative;
+  }
+  .card .ic {
+    position: absolute; left: 16px; top: 18px;
+    width: 26px; height: 26px; border-radius: 7px; background: var(--red);
+    display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 700;
+  }
+  .card h3 { font-size: 16px; font-weight: 700; }
+  .card p { font-size: 14.5px; color: var(--muted); margin-top: 4px; }
+
+  .callout {
+    margin-top: 22px; background: var(--dark); color: #fff;
+    border-radius: 14px; padding: 20px 22px;
+  }
+  .callout b { color: var(--red); }
+  .callout span { color: #d7d2ca; }
+
+  ul.clean { list-style: none; margin-top: 18px; display: grid; gap: 12px; }
+  ul.clean li { position: relative; padding-left: 26px; font-size: 15.5px; }
+  ul.clean li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 9px; height: 9px; border-radius: 50%; background: var(--red);
+  }
+  ul.clean li b { font-weight: 700; }
+
+  /* setup steps */
+  .progwrap { margin-top: 20px; margin-bottom: 6px; }
+  .progwrap .lbl { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .progbar { margin-top: 8px; height: 8px; background: var(--cream); border: 1px solid var(--line); border-radius: 100px; overflow: hidden; }
+  .progbar i { display: block; height: 100%; width: 0; background: var(--red); transition: width .35s ease; }
+
+  .steps { margin-top: 24px; display: grid; gap: 14px; counter-reset: step; }
+  .step {
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 18px 18px 60px; position: relative; cursor: pointer;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .step:hover { border-color: #cdbfae; }
+  .step .num {
+    position: absolute; left: 16px; top: 16px;
+    width: 30px; height: 30px; border-radius: 8px;
+    border: 2px solid var(--dark); background: var(--white);
+    display: grid; place-items: center; font-family: 'Bebas Neue', sans-serif;
+    font-size: 19px; color: var(--dark); transition: all .15s;
+  }
+  .step.done .num { background: var(--red); border-color: var(--red); color: #fff; }
+  .step.done .num::after { content: "✓"; }
+  .step.done .num .n { display: none; }
+  .step h3 { font-size: 16px; font-weight: 700; padding-right: 28px; }
+  .step .body { font-size: 14.5px; color: var(--muted); margin-top: 8px; }
+  .step .body strong { color: var(--ink); }
+  .step .tip { margin-top: 10px; font-size: 13.5px; color: var(--ink); background: var(--cream); border-left: 3px solid var(--red); padding: 9px 12px; border-radius: 0 8px 8px 0; }
+
+  /* code blocks */
+  .codeblock { margin-top: 16px; border-radius: 12px; overflow: hidden; border: 1px solid #2a2724; }
+  .codeblock .bar {
+    background: #201e1c; color: #cfc9c0; display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 12px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700;
+  }
+  .codeblock .bar .dots { display: flex; gap: 6px; }
+  .codeblock .bar .dots i { width: 10px; height: 10px; border-radius: 50%; background: #3a3633; }
+  .codeblock .bar .dots i:first-child { background: var(--red); }
+  .copy {
+    cursor: pointer; background: transparent; color: #cfc9c0; border: 1px solid #3a3633;
+    border-radius: 7px; padding: 5px 11px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; font-family: 'DM Sans', sans-serif; transition: all .15s;
+  }
+  .copy:hover { border-color: var(--red); color: #fff; }
+  .copy.copied { background: var(--red); border-color: var(--red); color: #fff; }
+  pre {
+    background: var(--code-bg); color: #ece7df; margin: 0;
+    padding: 16px; overflow-x: auto; font-size: 13px; line-height: 1.55;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    white-space: pre; tab-size: 2;
+  }
+  pre.short { font-size: 13.5px; }
+
+  /* platform tabs */
+  .tabs { display: flex; gap: 8px; margin-top: 24px; background: var(--cream); border: 1px solid var(--line); border-radius: 13px; padding: 6px; }
+  .tab {
+    flex: 1; cursor: pointer; border: none; background: transparent;
+    font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--muted); padding: 13px 10px; border-radius: 9px; transition: all .15s;
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active { background: var(--dark); color: #fff; }
+  .tab .badge {
+    font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    background: var(--red); color: #fff; padding: 3px 8px; border-radius: 100px;
+  }
+  .pane { display: none; }
+  .pane.active { display: block; animation: fade .4s ease both; }
+  @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .pane section:first-child { border-top: none; }
+
+  /* final CTA */
+  .cta {
+    background: var(--dark); color: #fff; border-radius: 18px; padding: 34px 26px; margin-top: 6px;
+    position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(600px 300px at 90% 0%, rgba(237,64,24,0.25), transparent 60%);
+  }
+  .cta > * { position: relative; z-index: 2; }
+  .cta h2 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(30px,6vw,44px); text-transform: uppercase; line-height: 0.95; }
+  .cta p { color: #d7d2ca; margin-top: 12px; font-size: 16px; }
+  .cta p b { color: #fff; }
+  .cta-btns { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-ghost {
+    display: inline-block; text-decoration: none; text-align: center;
+    background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4);
+  }
+  .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+  .btn-solid { display: inline-block; text-decoration: none; text-align: center; background: var(--red); color: #fff; }
+  .btn-solid:hover { filter: brightness(1.07); }
+
+  footer { text-align: center; padding: 30px 0 46px; color: var(--muted); font-size: 13.5px; }
+  footer b { color: var(--ink); }
+  footer a { color: var(--red); text-decoration: none; font-weight: 700; }
+
+  @media (max-width: 560px) {
+    .card, .step { padding-left: 54px; }
+    .gate { padding: 18px; }
+    .cta-btns .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO / EMAIL GATE ================= -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Free Automation · @floydie</span>
+
+    <h1>An inbox that<br>handles itself<br><span class="accent">before you wake up.</span></h1>
+
+    <p class="subhead">An AI assistant that triages your email, drafts your replies in your voice, and leaves a one page briefing waiting every morning. Runs in the cloud. Sets up in ten minutes. Never sends a thing without you.</p>
+
+    <p class="byline">By <b>Floydie</b> · Founder, 44 Social</p>
+
+    <div class="preview" aria-hidden="true">
+      <div class="pv"><span class="tick">✓</span> Sorts your whole inbox into clean buckets, automatically</div>
+      <div class="pv"><span class="tick">✓</span> Writes your replies in your voice, ready to review</div>
+      <div class="pv"><span class="tick">✓</span> Catches partnership money before it gets buried as spam</div>
+      <div class="pv"><span class="tick">✓</span> Drops a one page morning briefing in your inbox</div>
+    </div>
+
+    <a class="btn btn-red jump" href="#start">Start the setup</a>
+  </div>
+</header>
+
+<!-- ================= UNLOCKED CONTENT ================= -->
+<main class="content" id="content">
+  <div class="wrap">
+
+    <!-- WHAT IT DOES -->
+    <section id="start">
+      <p class="kicker">What this is</p>
+      <h2 class="sec">Your daily inbox &amp; calendar assistant</h2>
+      <p class="lede">Every morning, an AI assistant goes through your inbox and calendar, triages everything, writes your replies, and hands you a one page briefing. You sit down with coffee, skim what matters, send the replies you like, and move on with your day. It runs on a schedule in the cloud, so your laptop can be closed or off.</p>
+
+      <div class="cards">
+        <div class="card"><span class="ic">1</span><h3>Triages your whole inbox</h3><p>Clients, leads, money, partnerships, personal, and noise get sorted into clear buckets, so what matters is front and center and the clutter stays out of your way.</p></div>
+        <div class="card"><span class="ic">2</span><h3>Writes your replies for you</h3><p>Anything that needs an answer gets a reply written in your voice, ready for you to review and send.</p></div>
+        <div class="card"><span class="ic">3</span><h3>Catches revenue you might miss</h3><p>Real partnership and sponsorship pitches get flagged as opportunities instead of buried as spam, with a reply already written.</p></div>
+        <div class="card"><span class="ic">4</span><h3>Flags the scams</h3><p>"Your domain is expiring," "verify your account now," surprise file shares. It treats these as suspicious, leaves them alone, and warns you.</p></div>
+        <div class="card"><span class="ic">5</span><h3>Preps your day</h3><p>The briefing lays out your top priorities, today and tomorrow's calendar, the replies waiting for you, and everything it handled.</p></div>
+      </div>
+
+      <div class="callout"><b>It never sends anything on its own.</b> <span>You review everything and you decide what goes out. Nothing leaves your inbox without you.</span></div>
+    </section>
+
+    <!-- PLATFORM TABS -->
+    <section style="border-bottom:none; padding-bottom:8px;">
+      <p class="kicker">Pick your tool</p>
+      <h2 class="sec">Choose your platform</h2>
+      <p class="lede">Same assistant, set up for whichever AI you actually use. Claude runs the full hands off version that files and drafts inside Gmail for you. ChatGPT runs a read and brief version that hands you everything ready to action in a couple of clicks.</p>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-target="pane-claude" role="tab">Claude <span class="badge">Full auto</span></button>
+        <button class="tab" data-target="pane-chatgpt" role="tab">ChatGPT <span class="badge">Read + brief</span></button>
+      </div>
+    </section>
+
+    <!-- ============ CLAUDE PANE ============ -->
+    <div class="pane active" id="pane-claude">
+
+    <!-- WHAT YOU NEED -->
+    <section>
+      <p class="kicker">Before you start</p>
+      <h2 class="sec">What you'll need</h2>
+      <ul class="clean">
+        <li>A <b>paid Claude plan</b>. The free tier can't run scheduled automations.</li>
+        <li>Your <b>Gmail and Google Calendar connected to Claude</b>. In Claude, open the connectors menu and connect both.</li>
+        <li><b>About ten minutes</b> for first time setup. You only do it once.</li>
+      </ul>
+    </section>
+
+    <!-- SETUP STEPS -->
+    <section>
+      <p class="kicker">The build</p>
+      <h2 class="sec">Setup, step by step</h2>
+      <p class="lede">Tap each step as you finish it to track your progress.</p>
+
+      <div class="progwrap">
+        <div class="lbl"><span>Setup progress</span><span class="ptext">0 / 5</span></div>
+        <div class="progbar"><i class="pfill"></i></div>
+      </div>
+
+      <div class="steps" id="steps">
+        <div class="step" data-step>
+          <span class="num"><span class="n">1</span></span>
+          <h3>Create eight labels in Gmail</h3>
+          <div class="body">These are the buckets your assistant sorts mail into. In Gmail, create labels with <strong>exactly these names</strong> (Settings &gt; Labels &gt; Create new label, or the "+" next to Labels in the sidebar). You don't need any codes or IDs. The assistant finds them by name.
+            <div class="codeblock" onclick="event.stopPropagation()">
+              <div class="bar"><span class="dots"><i></i><i></i><i></i></span><button class="copy" data-copy>Copy labels</button></div>
+              <pre class="short" data-code>Work/Clients
+Sales &amp; Leads
+Money/Finance
+Partnerships
+Newsletters
+Receipts
+Personal
+Low Prio</pre>
+            </div>
+            <div class="tip">Already have a labeling system you like? Rename these in the prompt to match your existing labels. Just keep the names identical between Gmail and the prompt.</div>
+          </div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">2</span></span>
+          <h3>Create a cloud environment</h3>
+          <div class="body">This is the secure space your automation runs in. In Claude, go to <strong>Settings &gt; Environments</strong> and create a new one. <strong>Name</strong> it anything ("Inbox Assistant" is fine). <strong>Network access:</strong> leave it on the default (most restrictive) setting. <strong>Environment variables:</strong> leave empty. <strong>Setup script:</strong> leave blank. Save it. You only do this once.</div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">3</span></span>
+          <h3>Create the routine and paste the prompt</h3>
+          <div class="body">Go to your Routines page and click <strong>New routine</strong>. <strong>Name:</strong> Daily Email + Calendar Review. <strong>Instructions:</strong> paste the full prompt below, after filling in the five personal details at the top. <strong>Environment:</strong> select the one you created in Step 2.</div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">4</span></span>
+          <h3>Set the schedule and connectors</h3>
+          <div class="body"><strong>Trigger:</strong> choose Daily and pick a time. Early morning (5 to 7 AM) means it's done before you start your day. <strong>Connectors:</strong> make sure Gmail and Google Calendar are attached. Remove any others you don't want it to touch.</div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">5</span></span>
+          <h3>Test it once</h3>
+          <div class="body">Hit <strong>Run now</strong> and let it do a single pass. Open your inbox, check how it sorted things, and read a couple of the drafts it wrote. Once you're happy, it runs on its own every morning.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROMPT -->
+    <section>
+      <p class="kicker">The good part</p>
+      <h2 class="sec">The prompt</h2>
+      <p class="lede">Fill in the five bracketed details at the top, then paste the whole thing into the routine's Instructions box.</p>
+
+      <div class="codeblock">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><button class="copy" data-copy>Copy prompt</button></div>
+        <pre data-code>You are [YOUR NAME]'s personal email + calendar assistant. Timezone [YOUR TIMEZONE].
+Run this routine top to bottom. Everything you need is in this prompt.
+
+=== FILL IN ===
+- Name / sign-off: [YOUR NAME] (sign emails "[YOUR NAME]")
+- Timezone: [YOUR TIMEZONE, e.g. America/New_York]
+- Email + calendar account: [you@yourdomain.com]
+- Send the daily briefing to: [you@yourdomain.com]
+- Voice: [how your emails should sound, e.g. direct, casual, warm]
+
+=== LABELS ===
+Before triaging, call the Gmail "list labels" tool ONCE and build a map of label
+name -&gt; label ID. Use those real IDs whenever you label below, never invent an ID.
+This routine uses these eight labels (the user has created them in Gmail):
+
+| Category      | Goes here                                            | Inbox?  |
+|---------------|------------------------------------------------------|---------|
+| Work/Clients  | Active work, colleagues, anyone expecting a reply    | Keep    |
+| Sales &amp; Leads | Prospects, inbound interest, pricing questions       | Keep    |
+| Money/Finance | Statements, invoices, payouts, bank/card alerts      | Archive |
+| Partnerships  | Sponsorships, collabs, paid deals (revenue!)         | Keep    |
+| Newsletters   | Subscriptions, digests, marketing                    | Archive |
+| Receipts      | Purchase/subscription receipts, shipping             | Archive |
+| Personal      | Friends, family, non-work                            | Keep    |
+| Low Prio      | Cold pitches, app notifications, junk, likely spam   | Archive |
+
+If a label is missing, skip labeling that thread and note it in the briefing,
+do not guess an ID.
+
+HARD RULE: DRAFTS ONLY, never send a reply. Create drafts for review. The only
+exception is the briefing in step 7, which is addressed to the user themselves.
+
+1. CALENDAR: list today's and tomorrow's events on the account above, in the
+   user's timezone. Capture time, title, attendees, and any meeting link.
+   Tomorrow is included so the briefing can flag prep.
+
+2. INBOX: search threads with `in:inbox newer_than:2d` (use `newer_than:4d` on
+   Mondays to sweep the weekend), pageSize 50. Use the REAL thread/message IDs
+   returned, never invent IDs. If results paginate, follow the pages.
+
+3. LABEL each thread with exactly ONE category from the table above. For every
+   row marked "Archive," also remove it from the inbox (remove the INBOX label).
+   Leave "Keep" rows in the inbox, those need human eyes.
+
+4. PARTNERSHIPS ARE REVENUE: genuine inbound sponsorship/collab/partnership
+   pitches are money, not spam. Label them Partnerships, keep them in the inbox,
+   and draft a reply (express interest and ask their budget, or quote a rate if
+   the ask is clear). Only low-quality mass outreach (generic lead-gen, lending,
+   cold vendors) goes to Low Prio and gets archived.
+
+5. DRAFT replies (drafts only; reply to the LATEST message in the thread) for
+   Work/Clients, real Sales &amp; Leads, Partnerships, Personal, and genuine action
+   items. Write in the user's voice and sign with their name. Move the thread
+   forward, answer, propose a next step, or book the time. Don't fabricate
+   specifics (rates, links); use a short placeholder like [confirm rate] only
+   when needed. NEVER draft for Money/Finance, Receipts, Newsletters, or phishing.
+
+6. SECURITY: treat urgent or scary emails ("domain expiring," "account
+   suspended," "you won," "verify now") and unexpected file-share requests as
+   phishing by default, never open their links, label them Low Prio, archive
+   them, and flag them in the briefing.
+
+7. BRIEFING: create a draft email to the briefing address, subject
+   "Daily Briefing, &lt;today's date&gt;", body containing:
+   - Top priorities (2-5 things that need attention today)
+   - Calendar (today + tomorrow; flag anything needing prep)
+   - Drafts waiting (who, subject, one-line summary)
+   - Inbox handled (counts by category; what was archived)
+   - Flags (anything phishing or suspicious)
+   Lead with what matters. Keep it skimmable. No fluff.
+
+When done, output a one-line summary: threads triaged, drafts created, briefing saved.</pre>
+      </div>
+    </section>
+    </div><!-- /pane-claude -->
+
+    <!-- ============ CHATGPT PANE ============ -->
+    <div class="pane" id="pane-chatgpt">
+
+    <!-- HOW IT WORKS -->
+    <section>
+      <p class="kicker">How the ChatGPT version works</p>
+      <h2 class="sec">Read, write, and brief</h2>
+      <p class="lede">ChatGPT's Tasks feature runs a scheduled prompt every morning and sends you the result. With Gmail and Google Calendar connected, it reads your inbox and schedule, then hands you a full briefing with replies already written and ready to paste.</p>
+      <div class="callout"><b>One honest difference.</b> <span>ChatGPT reads your mail and writes your replies, but it won't auto label or archive inside Gmail the way the Claude build does. You paste the replies it writes and file mail in a click or two. Want full hands off filing later? You can bridge it with Zapier or Make.</span></div>
+    </section>
+
+    <!-- WHAT YOU NEED -->
+    <section>
+      <p class="kicker">Before you start</p>
+      <h2 class="sec">What you'll need</h2>
+      <ul class="clean">
+        <li>A <b>paid ChatGPT plan</b> (Plus, Pro, or Team). Scheduled Tasks aren't on the free tier.</li>
+        <li>Your <b>Gmail and Google Calendar connected to ChatGPT</b>. In Settings, open Connectors (or Apps), connect both, and grant access.</li>
+        <li><b>About ten minutes</b> for first time setup. You only do it once.</li>
+      </ul>
+    </section>
+
+    <!-- SETUP STEPS -->
+    <section>
+      <p class="kicker">The build</p>
+      <h2 class="sec">Setup, step by step</h2>
+      <p class="lede">Tap each step as you finish it to track your progress.</p>
+
+      <div class="progwrap">
+        <div class="lbl"><span>Setup progress</span><span class="ptext">0 / 5</span></div>
+        <div class="progbar"><i class="pfill"></i></div>
+      </div>
+
+      <div class="steps">
+        <div class="step" data-step>
+          <span class="num"><span class="n">1</span></span>
+          <h3>Connect Gmail and Calendar</h3>
+          <div class="body">In ChatGPT, go to <strong>Settings &gt; Connectors</strong> (on some plans it's under <strong>Apps</strong>), connect <strong>Gmail</strong> and <strong>Google Calendar</strong>, sign in, and grant access. Once connected, ChatGPT can pull from them automatically when a task needs them.</div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">2</span></span>
+          <h3>Start a scheduled Task</h3>
+          <div class="body">Open a new chat and tell ChatGPT you want a recurring task. You can find and manage tasks later under your <strong>profile &gt; Tasks</strong>. <strong>Tip:</strong> ask it to run once right now before you schedule it, so you can see the output and fine tune.</div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">3</span></span>
+          <h3>Paste the prompt and set the time</h3>
+          <div class="body">Paste the prompt below after filling in the bracketed details, then tell ChatGPT to <strong>run it every morning</strong> at your chosen time. Early (5 to 7 AM) means it's done before you start your day.</div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">4</span></span>
+          <h3>Confirm the schedule</h3>
+          <div class="body">ChatGPT shows a confirmation of the task. It runs <strong>whether or not you're online</strong> and notifies you by push or email when it's done. You can edit or pause it anytime under Tasks. Heads up: you can have up to <strong>10 active tasks</strong> at once.</div>
+        </div>
+
+        <div class="step" data-step>
+          <span class="num"><span class="n">5</span></span>
+          <h3>Review the first run</h3>
+          <div class="body">Let it run once. Open the briefing it sends, skim the replies it wrote, and paste the ones you like straight into Gmail. After a few days you'll know its judgment and can trust it on autopilot.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROMPT -->
+    <section>
+      <p class="kicker">The good part</p>
+      <h2 class="sec">The prompt</h2>
+      <p class="lede">Fill in the four bracketed details at the top, then paste the whole thing into your scheduled task.</p>
+
+      <div class="codeblock">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><button class="copy" data-copy>Copy prompt</button></div>
+        <pre data-code>You are [YOUR NAME]'s personal email + calendar assistant. Timezone [YOUR TIMEZONE].
+Run this top to bottom and send me the result. Everything you need is here.
+
+=== FILL IN ===
+- Name / sign-off: [YOUR NAME]
+- Timezone: [YOUR TIMEZONE, e.g. America/New_York]
+- Email + calendar account: [you@yourdomain.com]
+- Voice: [how your emails should sound, e.g. direct, casual, warm]
+
+Use the connected Gmail and Google Calendar for the account above.
+You are READ-ONLY: do not send, delete, label, or change anything. Just read,
+then write me a briefing.
+
+1. CALENDAR: list today's and tomorrow's events in my timezone. Capture time,
+   title, attendees, and any meeting link. Tomorrow is included so you can flag prep.
+
+2. INBOX: read my inbox from the last 2 days (last 4 days on Mondays). Sort every
+   message into exactly ONE bucket:
+   - Work/Clients   active work, colleagues, anyone expecting a reply
+   - Sales &amp; Leads  prospects, inbound interest, pricing questions
+   - Partnerships   sponsorships, collabs, paid deals (revenue, never spam)
+   - Money/Finance  statements, invoices, payouts, bank/card alerts
+   - Personal       friends, family, non-work
+   - Receipts       purchase/subscription receipts, shipping
+   - Newsletters    subscriptions, digests, marketing
+   - Low Prio       cold pitches, app notifications, junk, likely spam
+
+3. PARTNERSHIPS ARE REVENUE: genuine inbound partnership/sponsorship/collab pitches
+   are money, not spam. Put them at the top and write a reply (express interest and
+   ask their budget, or quote a rate if the ask is clear).
+
+4. WRITE REPLIES: for Work/Clients, real Sales &amp; Leads, Partnerships, Personal, and
+   genuine action items, write a ready-to-send reply in my voice, signed with my name.
+   Move it forward: answer, propose a next step, or book the time. Don't invent
+   specifics (rates, links); use a short placeholder like [confirm rate] if needed.
+   Do NOT write replies for Money/Finance, Receipts, Newsletters, or anything phishing.
+
+5. SECURITY: treat urgent or scary emails ("domain expiring," "account suspended,"
+   "you won," "verify now") and unexpected file-share requests as phishing. Do not
+   open their links. List them under Flags and tell me to ignore or delete them.
+
+6. SEND ME THE BRIEFING, skimmable and in this order, no fluff:
+   - Top priorities (2-5 things that need attention today)
+   - Calendar (today + tomorrow; flag anything needing prep)
+   - Replies ready (for each: who, subject, and the full reply I can copy/paste)
+   - Inbox at a glance (counts by bucket)
+   - Flags (anything phishing or suspicious)
+
+Finish with a one-line summary: messages reviewed, replies written, items flagged.</pre>
+      </div>
+    </section>
+    </div><!-- /pane-chatgpt -->
+
+    <!-- GOOD TO KNOW -->
+    <section>
+      <p class="kicker">Before you trust it</p>
+      <h2 class="sec">Good to know</h2>
+      <ul class="clean">
+        <li><b>Nothing sends without you.</b> Every reply is yours to review first. The assistant prepares, you decide what goes out.</li>
+        <li><b>Watch the first few runs.</b> Skim how it sorts and what it writes before you fully trust it. After a few days you'll know its judgment.</li>
+        <li><b>Filing is the Claude version's job.</b> On Claude, money, receipts, newsletters, and low priority mail get pulled into their labels (never deleted, just tidied). On ChatGPT you do the filing yourself from the briefing.</li>
+        <li><b>It runs on a schedule, in the cloud.</b> Your computer doesn't need to be on.</li>
+      </ul>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="border:none">
+      <div class="cta">
+        <h2>Want the systems, not just the freebie?</h2>
+        <p>If this saved you an hour, imagine your whole business running on systems like it. That's what we build at <b>44 Social</b>: content, lead gen, and automations that actually show up so you don't have to do it all by hand. Let's talk through what that looks like for you.</p>
+        <div class="cta-btns">
+          <a class="btn btn-solid" href="https://calendly.com/44social/30min" target="_blank" rel="noopener">Book a 30-min call</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built by <b>@floydie</b> · <a href="https://floydie.co">floydie.co/vault/ai-email-va</a>
+    </footer>
+  </div>
+</main>
+
+<script>
+/* ---- Copy buttons ---- */
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    const block = btn.closest('.codeblock');
+    const text = block.querySelector('[data-code]').textContent;
+    navigator.clipboard.writeText(text).then(function(){
+      const original = btn.textContent;
+      btn.textContent = 'Copied'; btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = original; btn.classList.remove('copied'); }, 1600);
+    });
+  });
+});
+
+/* ---- Setup progress trackers (one per pane) ---- */
+document.querySelectorAll('.steps').forEach(function(group){
+  const sec = group.closest('section');
+  const ptext = sec.querySelector('.ptext');
+  const pfill = sec.querySelector('.pfill');
+  const items = Array.from(group.querySelectorAll('[data-step]'));
+  function refresh(){
+    const done = items.filter(s => s.classList.contains('done')).length;
+    if(ptext) ptext.textContent = done + ' / ' + items.length;
+    if(pfill) pfill.style.width = (done / items.length * 100) + '%';
+  }
+  items.forEach(function(step){
+    step.addEventListener('click', function(){ step.classList.toggle('done'); refresh(); });
+  });
+});
+
+/* ---- Platform tabs ---- */
+document.querySelectorAll('.tab').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
